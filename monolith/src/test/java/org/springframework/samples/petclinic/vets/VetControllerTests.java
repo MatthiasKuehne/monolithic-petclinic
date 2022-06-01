@@ -40,12 +40,13 @@ class VetControllerTests {
             .andExpect(xpath("//table[@id='vets']/tbody/tr").nodeCount(6))
             .andExpect(xpath("//table[@id='vets']/tbody/tr[position()=1]/td[position()=1]").string("James Carter"))
             .andExpect(xpath("//table[@id='vets']/tbody/tr[position()=1]/td[position()=2]/span").string("none"))
-            .andExpect(xpath("//table[@id='vets']/tbody/tr[position()=2]/td[position()=1]").string("Helen Leary"))
-            .andExpect(xpath("//table[@id='vets']/tbody/tr[position()=2]/td[position()=2]/span").string("radiology "))
-            .andExpect(xpath("//table[@id='vets']/tbody/tr[position()=3]/td[position()=1]").string("Linda Douglas"))
-            .andExpect(xpath("//table[@id='vets']/tbody/tr[position()=3]/td[position()=2]/span").nodeCount(2))
-            .andExpect(xpath("//table[@id='vets']/tbody/tr[position()=3]/td[position()=2]/span[position()=1]").string("dentistry "))
-            .andExpect(xpath("//table[@id='vets']/tbody/tr[position()=3]/td[position()=2]/span[position()=2]").string("surgery "))
+            .andExpect(xpath("//table[@id='vets']/tbody/tr[position()=2]/td[position()=1]").string("Linda Douglas"))
+            .andExpect(xpath("//table[@id='vets']/tbody/tr[position()=2]/td[position()=2]/span").nodeCount(2))
+            .andExpect(xpath("//table[@id='vets']/tbody/tr[position()=2]/td[position()=2]/span[position()=1]").string("dentistry "))
+            .andExpect(xpath("//table[@id='vets']/tbody/tr[position()=2]/td[position()=2]/span[position()=2]").string("surgery "))
+            .andExpect(xpath("//table[@id='vets']/tbody/tr[position()=4]/td[position()=1]").string("Helen Leary"))
+            .andExpect(xpath("//table[@id='vets']/tbody/tr[position()=4]/td[position()=2]/span").string("radiology "))
+
         ;
     }
 

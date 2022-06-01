@@ -3,7 +3,8 @@ package org.springframework.samples.petclinic.vets;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
-import java.util.HashSet;
+import java.util.Comparator;
+import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
@@ -15,10 +16,14 @@ public class VetService {
         this.vets = vets;
     }
 
-    public Collection<VetDto> allVets() {
+    public List<VetDto> allVets() {
         Collection<Vet> vets = this.vets.findAll();
 
-        return vets.stream().map(this::toVetDto).collect(Collectors.toList());
+        return vets.stream().map(this::toVetDto)
+                .sorted(Comparator.comparing(VetDto::getLastName)
+                    .thenComparing(VetDto::getFirstName)
+                    .thenComparing(VetDto::getId))
+                .collect(Collectors.toList());
     }
 
 
@@ -30,7 +35,7 @@ public class VetService {
         vetDto.setLastName(source.getLastName());
         vetDto.setSpecialtiesInternal(source.getSpecialties().stream()
                 .map(this::toSpecialtyDto)
-                .collect(Collectors.toSet()));
+                .collect(Collectors.toList()));
         return vetDto;
     }
 

@@ -10,7 +10,7 @@ public class VetDto {
 
     private Integer id;
     @NotNull
-    private Set<SpecialtyDto> specialties;
+    private List<SpecialtyDto> specialties;
     private String firstName;
     private String lastName;
 
@@ -22,11 +22,11 @@ public class VetDto {
         this.id = id;
     }
 
-    protected Set<SpecialtyDto> getSpecialtiesInternal() {
+    protected List<SpecialtyDto> getSpecialtiesInternal() {
         return this.specialties;
     }
 
-    protected void setSpecialtiesInternal(Set<SpecialtyDto> specialties) {
+    protected void setSpecialtiesInternal(List<SpecialtyDto> specialties) {
         this.specialties = specialties;
     }
 
