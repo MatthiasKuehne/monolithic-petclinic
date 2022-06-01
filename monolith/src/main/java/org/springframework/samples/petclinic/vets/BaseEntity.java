@@ -15,31 +15,35 @@
  */
 package org.springframework.samples.petclinic.vets;
 
-import org.springframework.samples.petclinic.service.ClinicService;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-
-import java.util.Map;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.MappedSuperclass;
+import java.io.Serializable;
 
 /**
- * @author Juergen Hoeller
- * @author Mark Fisher
+ * Simple JavaBean domain object with an id property. Used as a base class for objects
+ * needing this property.
+ *
  * @author Ken Krebs
- * @author Arjen Poutsma
+ * @author Juergen Hoeller
  */
-@Controller
-class VetController {
+@MappedSuperclass
+public class BaseEntity implements Serializable {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
 
-    private final VetService vetService;
-
-    public VetController(VetService vetService) {
-        this.vetService = vetService;
+    public Integer getId() {
+        return id;
     }
 
-    @GetMapping("/vets")
-    public String showVetList(Map<String, Object> model) {
-        model.put("vets", this.vetService.allVets());
-        return "vets/vetList";
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public boolean isNew() {
+        return this.id == null;
     }
 
 }
