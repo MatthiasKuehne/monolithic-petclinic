@@ -26,7 +26,7 @@ public class VetDto {
         return this.specialties;
     }
 
-    protected void setSpecialtiesInternal(List<SpecialtyDto> specialties) {
+    public void setSpecialties(List<SpecialtyDto> specialties) {
         this.specialties = specialties;
     }
 
@@ -56,4 +56,16 @@ public class VetDto {
         this.lastName = lastName;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        VetDto vetDto = (VetDto) o;
+        return Objects.equals(id, vetDto.id) && Objects.equals(specialties, vetDto.specialties) && Objects.equals(firstName, vetDto.firstName) && Objects.equals(lastName, vetDto.lastName);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, specialties, firstName, lastName);
+    }
 }

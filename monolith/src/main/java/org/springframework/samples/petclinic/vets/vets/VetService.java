@@ -33,7 +33,7 @@ public class VetService {
         vetDto.setId(source.getId());
         vetDto.setFirstName(source.getFirstName());
         vetDto.setLastName(source.getLastName());
-        vetDto.setSpecialtiesInternal(source.getSpecialties().stream()
+        vetDto.setSpecialties(source.getSpecialties().stream()
                 .map(this::toSpecialtyDto)
                 .collect(Collectors.toList()));
         return vetDto;
