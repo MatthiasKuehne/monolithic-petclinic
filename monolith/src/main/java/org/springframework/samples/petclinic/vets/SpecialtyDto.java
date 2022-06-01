@@ -6,6 +6,13 @@ public class SpecialtyDto {
 
     private String name;
 
+    public SpecialtyDto() {
+    }
+
+    public SpecialtyDto(String name) {
+        this.name = name;
+    }
+
     public String getName() {
         return this.name;
     }
