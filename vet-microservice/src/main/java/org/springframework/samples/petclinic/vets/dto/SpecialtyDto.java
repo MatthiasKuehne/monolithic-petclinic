@@ -1,6 +1,8 @@
 package org.springframework.samples.petclinic.vets.dto;
 
-public class SpecialtyDto {
+import java.io.Serializable;
+
+public class SpecialtyDto implements Serializable {
 
     private String name;
 

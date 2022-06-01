@@ -4,9 +4,10 @@ import org.springframework.beans.support.MutableSortDefinition;
 import org.springframework.beans.support.PropertyComparator;
 
 import javax.validation.constraints.NotNull;
+import java.io.Serializable;
 import java.util.*;
 
-public class VetDto {
+public class VetDto implements Serializable {
 
     private Integer id;
     @NotNull
