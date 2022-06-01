@@ -72,7 +72,7 @@ class VetControllerTests {
         expectedVetDto3.setFirstName("Helen");
         expectedVetDto3.setLastName("Leary");
         expectedVetDto3.setId(1);
-        expectedVetDto3.setSpecialties(new ArrayList<>());
+        expectedVetDto3.setSpecialties(Arrays.asList(new SpecialtyDto[]{new SpecialtyDto("radiology")}));
         expectedVets.add(expectedVetDto3);
 
 
