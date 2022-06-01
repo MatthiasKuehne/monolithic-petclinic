@@ -14,10 +14,11 @@
  * limitations under the License.
  */
 
-package org.springframework.samples.petclinic.vets.vets;
+package org.springframework.samples.petclinic.vets.model;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.context.i18n.LocaleContextHolder;
+import org.springframework.samples.petclinic.vets.model.Vet;
 import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 
 import javax.validation.ConstraintViolation;

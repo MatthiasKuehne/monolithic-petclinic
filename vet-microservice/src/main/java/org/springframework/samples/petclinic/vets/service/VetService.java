@@ -1,5 +1,10 @@
-package org.springframework.samples.petclinic.vets.vets;
+package org.springframework.samples.petclinic.vets.service;
 
+import org.springframework.samples.petclinic.vets.model.Specialty;
+import org.springframework.samples.petclinic.vets.model.Vet;
+import org.springframework.samples.petclinic.vets.dto.SpecialtyDto;
+import org.springframework.samples.petclinic.vets.dto.VetDto;
+import org.springframework.samples.petclinic.vets.db.VetRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
@@ -33,7 +38,7 @@ public class VetService {
         vetDto.setId(source.getId());
         vetDto.setFirstName(source.getFirstName());
         vetDto.setLastName(source.getLastName());
-        vetDto.setSpecialtiesInternal(source.getSpecialties().stream()
+        vetDto.setSpecialties(source.getSpecialties().stream()
                 .map(this::toSpecialtyDto)
                 .collect(Collectors.toList()));
         return vetDto;

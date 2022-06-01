@@ -1,8 +1,10 @@
-package org.springframework.samples.petclinic.vets.vets;
+package org.springframework.samples.petclinic.vets.service;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.samples.petclinic.vets.dto.VetDto;
+import org.springframework.samples.petclinic.vets.service.VetService;
 
 import java.util.Collection;
 

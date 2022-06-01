@@ -1,4 +1,4 @@
-package org.springframework.samples.petclinic.vets.vets;
+package org.springframework.samples.petclinic.vets.dto;
 
 import org.springframework.beans.support.MutableSortDefinition;
 import org.springframework.beans.support.PropertyComparator;
@@ -26,7 +26,7 @@ public class VetDto {
         return this.specialties;
     }
 
-    protected void setSpecialtiesInternal(List<SpecialtyDto> specialties) {
+    public void setSpecialties(List<SpecialtyDto> specialties) {
         this.specialties = specialties;
     }
 

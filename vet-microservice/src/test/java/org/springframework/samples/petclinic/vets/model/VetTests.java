@@ -13,26 +13,31 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.springframework.samples.petclinic.vets.vets;
+package org.springframework.samples.petclinic.vets.model;
 
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-
-import java.util.Collection;
+import org.springframework.samples.petclinic.vets.model.Vet;
+import org.springframework.util.SerializationUtils;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-@SpringBootTest
-class VetRepositoryIntegrationTests {
-
-    @Autowired
-    VetRepository vetsRepository;
+/**
+ * @author Dave Syer
+ */
+class VetTests {
 
     @Test
-    void testFindVets() {
-        Collection<Vet> all = vetsRepository.findAll();
-        assertThat(all).hasSize(6);
+    void testSerialization() {
+        Vet vet = new Vet();
+        vet.setFirstName("Zaphod");
+        vet.setLastName("Beeblebrox");
+        vet.setId(123);
+
+        Vet other = (Vet) SerializationUtils.deserialize(SerializationUtils.serialize(vet));
+
+        assertThat(other.getFirstName()).isEqualTo(vet.getFirstName());
+        assertThat(other.getLastName()).isEqualTo(vet.getLastName());
+        assertThat(other.getId()).isEqualTo(vet.getId());
     }
 
 }
