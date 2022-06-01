@@ -15,6 +15,7 @@
  */
 package org.springframework.samples.petclinic.controller;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.samples.petclinic.vets.VetService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

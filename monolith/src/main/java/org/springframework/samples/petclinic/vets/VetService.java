@@ -1,5 +1,6 @@
 package org.springframework.samples.petclinic.vets;
 
+import org.springframework.samples.petclinic.vets.apigateway.VetServiceInterface;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
@@ -7,8 +8,8 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@Service
-public class VetService {
+@Service("monolith")
+public class VetService implements VetServiceInterface {
 
     private final VetRepository vets;
 
@@ -16,6 +17,7 @@ public class VetService {
         this.vets = vets;
     }
 
+    @Override
     public List<VetDto> allVets() {
         Collection<Vet> vets = this.vets.findAll();
 
